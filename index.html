@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>アカウント添削セッション｜にわとり - あなたのアカウント、一緒に整えます</title>
+  <meta name="description" content="Threadsアカウントの方向性・プロフィール・投稿を一緒に整理する45分のオンラインセッション。あなた専用の改善プランをお渡しします。">
+  <meta property="og:title" content="アカウント添削セッション｜にわとり">
+  <meta property="og:description" content="「ちゃんとやってるのに伸びない」を一緒に解決。45分のオンラインセッション＋まとめドキュメント付き。">
+  <meta property="og:type" content="website">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500;600;700&family=Alex+Brush&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #F7F5F0;
+      --bg-warm: #FBF8F3;
+      --bg-white: #FFFFFF;
+      --teal: #2D9B8A;
+      --teal-light: #E0F2EF;
+      --teal-dark: #1F7A6C;
+      --orange: #E8834A;
+      --orange-light: #FFF0E6;
+      --orange-dark: #D06A30;
+      --yellow: #F5C542;
+      --yellow-light: #FFF8E1;
+      --text-main: #2E2E2E;
+      --text-sub: #555555;
+      --text-muted: #888888;
+      --border: #E8E4DD;
+      --shadow-soft: rgba(0,0,0,0.06);
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg-main);
+      overflow-x: hidden;
+      line-height: 1.9;
+    }
+
+    h1, h2, h3, h4, .font-serif {
+      font-family: 'Shippori Mincho', serif;
+      line-height: 1.5;
+    }
+
+    .font-script {
+      font-family: 'Alex Brush', cursive;
+    }
+
+    /* アニメーション */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .stagger-item {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .stagger-item.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* カード */
+    .card {
+      background: var(--bg-white);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px var(--shadow-soft);
+    }
+
+    /* ボタン */
+    .btn-teal {
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+      color: #fff;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 16px rgba(45,155,138,0.25);
+    }
+    .btn-teal:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(45,155,138,0.35);
+    }
+
+    .btn-orange {
+      background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+      color: #fff;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 16px rgba(232,131,74,0.25);
+    }
+    .btn-orange:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(232,131,74,0.35);
+    }
+
+    .btn-outline {
+      background: var(--bg-white);
+      border: 2px solid var(--border);
+      color: var(--text-sub);
+      transition: all 0.3s ease;
+    }
+    .btn-outline:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+      transform: translateY(-2px);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    /* ハイライトボックス */
+    .highlight-box {
+      background: linear-gradient(135deg, var(--teal-light) 0%, #F0FAF7 100%);
+      border-left: 4px solid var(--teal);
+      border-radius: 0 16px 16px 0;
+    }
+
+    /* 数字バッジ */
+    .num-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, var(--teal-light) 0%, #D0EDE8 100%);
+      color: var(--teal-dark);
+    }
+
+    /* チェックアイコン */
+    .check-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      flex-shrink: 0;
+      background: var(--teal-light);
+      color: var(--teal);
+    }
+
+    /* ビフォーアフター */
+    .before-box {
+      background: #FFF5F5;
+      border: 1px solid #FFE0E0;
+      border-radius: 16px;
+    }
+    .after-box {
+      background: #F0FAF7;
+      border: 1px solid #C8E8E0;
+      border-radius: 16px;
+    }
+
+    /* プロセスライン */
+    .process-line::before {
+      content: "";
+      position: absolute;
+      left: 17px;
+      top: 24px;
+      bottom: 24px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--teal-light), var(--teal), var(--teal-light));
+    }
+
+    /* FAQ */
+    .faq-item {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .faq-item:hover {
+      box-shadow: 0 4px 16px var(--shadow-soft);
+    }
+    .faq-item.open {
+      box-shadow: 0 8px 24px var(--shadow-soft);
+    }
+    .faq-question {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 22px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      transition: background 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .faq-question:hover {
+      background: rgba(45,155,138,0.03);
+    }
+    .faq-q-badge {
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: var(--teal);
+      background: var(--teal-light);
+    }
+    .faq-toggle {
+      flex-shrink: 0;
+      margin-left: auto;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--bg-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+    .faq-item.open .faq-toggle {
+      transform: rotate(180deg);
+    }
+    .faq-toggle svg {
+      width: 13px;
+      height: 13px;
+      stroke: var(--text-muted);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1), padding 0.3s ease;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 500px;
+    }
+    .faq-answer-inner {
+      padding: 0 22px 22px 64px;
+      font-size: 0.84rem;
+      line-height: 1.9;
+      color: var(--text-sub);
+    }
+
+    /* タグ風バッジ */
+    .tag {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    /* モニター声カード */
+    .voice-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .voice-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal-light), var(--teal), var(--teal-light));
+    }
+
+    @media (max-width: 640px) {
+      .faq-question {
+        padding: 15px 16px;
+        font-size: 0.82rem;
+        gap: 10px;
+      }
+      .faq-answer-inner {
+        padding: 0 16px 18px 16px;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== Header ====== -->
+  <header class="fixed w-full z-50 px-5 py-3.5 flex justify-between items-center bg-white/80 backdrop-blur-lg border-b" style="border-color: var(--border);">
+    <div class="flex items-center gap-2">
+      <span class="text-xl">🐓</span>
+      <span class="text-lg font-bold tracking-tight" style="color: var(--teal-dark);">にわとり</span>
+    </div>
+    <nav class="hidden md:flex gap-8 text-xs font-medium tracking-wider" style="color: var(--text-sub);">
+      <a href="#about" class="hover:text-teal-600 transition-colors">セッションとは</a>
+      <a href="#flow" class="hover:text-teal-600 transition-colors">セッションの流れ</a>
+      <a href="#price" class="hover:text-teal-600 transition-colors">料金</a>
+      <a href="#faq" class="hover:text-teal-600 transition-colors">FAQ</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc69Drq-6N7vMJH5de8h8b7aAjqZKE31fdYHImCJX03tbG-_w/viewform" target="_blank" class="px-5 py-2 rounded-full btn-teal text-[10px] uppercase tracking-widest font-bold">申し込む</a>
+    </nav>
+    <button class="md:hidden text-xl" id="mobile-menu-btn" style="color: var(--text-sub);">☰</button>
+  </header>
+
+  <!-- ====== Hero ====== -->
+  <section class="relative min-h-[88vh] flex items-center justify-center pt-16 px-6 overflow-hidden">
+    <div class="absolute inset-0 z-0" style="background: linear-gradient(180deg, #E8F5F2 0%, #EEF1E8 30%, var(--bg-main) 100%);"></div>
+    <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full opacity-20" style="background: radial-gradient(circle, rgba(45,155,138,0.3) 0%, transparent 60%);"></div>
+
+    <div class="relative z-10 max-w-2xl text-center">
+      <span class="block font-script text-3xl md:text-4xl mb-3 opacity-90 reveal" style="color: var(--teal);">Your Account, Refined.</span>
+
+      <div class="flex items-center justify-center gap-3 mb-6 reveal" style="transition-delay: 0.1s;">
+        <span class="tag" style="background: var(--teal-light); color: var(--teal-dark);">Threads専門</span>
+        <span class="tag" style="background: var(--orange-light); color: var(--orange-dark);">45分で方向性が見える</span>
+      </div>
+
+      <h1 class="text-3xl md:text-5xl font-serif font-bold leading-tight mb-5 reveal" style="transition-delay: 0.2s;">
+        アカウント添削セッション
+      </h1>
+
+      <p class="text-sm md:text-base mb-4 leading-relaxed reveal" style="color: var(--text-sub); transition-delay: 0.35s;">
+        「ちゃんとやってるのに、なぜか伸びない」<br>
+        「方向性、これで合ってるのかな…」<br>
+        そのモヤモヤ、<strong style="color: var(--teal);">45分で一緒に整理します。</strong>
+      </p>
+
+      <p class="text-xs mb-8 reveal" style="color: var(--text-muted); transition-delay: 0.45s;">
+        占い・恋愛・子育て・健康・ビジネス…<br>ジャンル問わず、あなた専用の改善プランをお渡しします。
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-3 justify-center reveal" style="transition-delay: 0.55s;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc69Drq-6N7vMJH5de8h8b7aAjqZKE31fdYHImCJX03tbG-_w/viewform" target="_blank" class="px-9 py-4 rounded-full btn-teal font-bold text-sm shadow-xl">
+          フォームから申し込む
+        </a>
+        <a href="#about" class="px-9 py-4 rounded-full btn-outline font-bold text-sm flex items-center justify-center gap-2">
+          詳しく見る ↓
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== こんなお悩みありませんか？ ====== -->
+  <section class="py-20 px-6" style="background: var(--bg-warm);">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <span class="font-script text-2xl md:text-3xl block mb-2" style="color: var(--teal);">Pain Points</span>
+        <h2 class="text-xl md:text-3xl font-serif font-bold">こんなお悩み、ありませんか？</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+        <div class="p-5 rounded-2xl bg-white border stagger-item" style="border-color: var(--border);">
+          <p class="text-sm leading-relaxed">毎日投稿してるのに<br><strong style="color: var(--orange);">フォロワーが増えない</strong></p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border stagger-item" style="border-color: var(--border);">
+          <p class="text-sm leading-relaxed">プロフィールを<br><strong style="color: var(--orange);">何度も書き直している</strong></p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border stagger-item" style="border-color: var(--border);">
+          <p class="text-sm leading-relaxed">占い・子育て・健康…発信してるのに<br><strong style="color: var(--orange);">誰にも届いている気がしない</strong></p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border stagger-item" style="border-color: var(--border);">
+          <p class="text-sm leading-relaxed">「このままで合ってる？」が<br><strong style="color: var(--orange);">ずっと頭にある</strong></p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border stagger-item" style="border-color: var(--border);">
+          <p class="text-sm leading-relaxed">発信したいことはあるのに<br><strong style="color: var(--orange);">何をどう投稿すればいいかわからない</strong></p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border stagger-item" style="border-color: var(--border);">
+          <p class="text-sm leading-relaxed">何がダメなのか分からなくて<br><strong style="color: var(--orange);">手が止まっている</strong></p>
+        </div>
+      </div>
+
+      <div class="text-center reveal">
+        <p class="text-sm md:text-base leading-relaxed mb-3" style="color: var(--text-sub);">
+          ひとつでも当てはまったら、<br>
+          <strong style="color: var(--teal);">第三者の目線で見てもらうタイミング</strong>かもしれません。
+        </p>
+        <p class="text-xs" style="color: var(--text-muted);">
+          自分のアカウントって、自分では客観的に見れないもの。<br>
+          外からの視点が入るだけで、スッと前に進めることがあります。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== アカウント添削セッションとは ====== -->
+  <section id="about" class="py-20 px-6" style="background: var(--bg-white);">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-4 reveal">
+        <span class="font-script text-2xl md:text-3xl block mb-2" style="color: var(--teal);">About Session</span>
+        <h2 class="text-xl md:text-3xl font-serif font-bold mb-4">アカウント添削セッションとは</h2>
+      </div>
+
+      <div class="card p-7 md:p-10 reveal" style="transition-delay: 0.15s; position: relative; overflow: hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg, var(--teal-light), var(--teal), var(--teal-light));border-radius:20px 20px 0 0;"></div>
+
+        <p class="text-sm md:text-base leading-loose mb-5 text-center" style="color: var(--text-sub);">
+          あなたのThreadsアカウントを一緒に見ながら、<br>
+          <strong style="color: var(--text-main);">「何を」「誰に」「どう届けるか」</strong>を整理するセッションです。<br>
+          <span class="text-xs" style="color: var(--text-muted);">ダメ出しではなく、一緒に方向性を見つける場です。</span>
+        </p>
+        <div class="flex flex-wrap justify-center gap-2 mb-7">
+          <span class="tag" style="background: #FFF0F5; color: #B05080;">恋愛</span>
+          <span class="tag" style="background: #F3EEFF; color: #7B5EA7;">占い</span>
+          <span class="tag" style="background: #FFF5E6; color: #C08030;">子育て</span>
+          <span class="tag" style="background: #E8F5E9; color: #4A8A5A;">健康</span>
+          <span class="tag" style="background: var(--teal-light); color: var(--teal-dark);">ビジネス</span>
+          <span class="tag" style="background: #F0F0F0; color: #666;">その他</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-7">
+          <div class="p-4 rounded-xl text-center" style="background: var(--teal-light);">
+            <div class="text-xl mb-1.5">🎙</div>
+            <p class="text-xs font-bold mb-0.5">45分のセッション</p>
+            <p class="text-[10px]" style="color: var(--text-muted);">Google Meet</p>
+          </div>
+          <div class="p-4 rounded-xl text-center" style="background: var(--orange-light);">
+            <div class="text-xl mb-1.5">📝</div>
+            <p class="text-xs font-bold mb-0.5">事前ヒアリング</p>
+            <p class="text-[10px]" style="color: var(--text-muted);">アンケート回答</p>
+          </div>
+          <div class="p-4 rounded-xl text-center" style="background: var(--yellow-light);">
+            <div class="text-xl mb-1.5">📄</div>
+            <p class="text-xs font-bold mb-0.5">まとめドキュメント</p>
+            <p class="text-[10px]" style="color: var(--text-muted);">セッション後にお渡し</p>
+          </div>
+        </div>
+
+        <div class="highlight-box p-5 text-sm leading-loose">
+          アカウント運用って「一人で考え続ける」ほど、迷いやすい。<br>
+          少し視点を変えるだけでスッと前に進めることも多いんです。<br><br>
+          <strong>このセッションで「今の自分はここから始めればいい」が見える状態を作ります。</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== セッションで見ること ====== -->
+  <section class="py-20 px-6" style="background: var(--bg-white);">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <span class="font-script text-2xl md:text-3xl block mb-2" style="color: var(--teal);">What We Do</span>
+        <h2 class="text-xl md:text-3xl font-serif font-bold mb-3">セッションで見ること</h2>
+        <p class="text-xs" style="color: var(--text-muted);">あなたのアカウントに合わせて、主にこの5つを整理します</p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="card p-5 md:p-6 stagger-item">
+          <div class="flex items-start gap-4">
+            <div class="check-icon mt-1">✓</div>
+            <div>
+              <h4 class="font-bold text-sm mb-1">アカウントの現在地</h4>
+              <p class="text-xs" style="color: var(--text-sub);">外からあなたのアカウントがどう見えているか、客観的にフィードバック</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card p-5 md:p-6 stagger-item">
+          <div class="flex items-start gap-4">
+            <div class="check-icon mt-1">✓</div>
+            <div>
+              <h4 class="font-bold text-sm mb-1">ジャンルとテーマの整理</h4>
+              <p class="text-xs" style="color: var(--text-sub);">占い・恋愛・子育て・健康・ビジネスなど、あなたのジャンルに合わせたコンセプト設計</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card p-5 md:p-6 stagger-item">
+          <div class="flex items-start gap-4">
+            <div class="check-icon mt-1">✓</div>
+            <div>
+              <h4 class="font-bold text-sm mb-1">プロフィール添削</h4>
+              <p class="text-xs" style="color: var(--text-sub);">初めて見た人が「何の人か」すぐわかるプロフィールに整えます</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card p-5 md:p-6 stagger-item">
+          <div class="flex items-start gap-4">
+            <div class="check-icon mt-1">✓</div>
+            <div>
+              <h4 class="font-bold text-sm mb-1">投稿内容の改善</h4>
+              <p class="text-xs" style="color: var(--text-sub);">どんな投稿をすればいいか、反応がもらえる投稿の方向性を具体的にアドバイス</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card p-5 md:p-6 stagger-item">
+          <div class="flex items-start gap-4">
+            <div class="check-icon mt-1">✓</div>
+            <div>
+              <h4 class="font-bold text-sm mb-1">今後やることの明確化</h4>
+              <p class="text-xs" style="color: var(--text-sub);">「次に何をすればいいか」が見える状態にして、迷わず動き出せるようにします</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 text-center reveal">
+        <p class="text-xs leading-loose" style="color: var(--text-muted);">
+          ※ セッション内容はマインドマップにまとめてお見せしながら進行。<br>
+          セッション後に振り返りドキュメントをお渡しします。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== ビフォーアフター ====== -->
+  <section class="py-20 px-6" style="background: var(--bg-main);">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <span class="font-script text-2xl md:text-3xl block mb-2" style="color: var(--teal);">Before / After</span>
+        <h2 class="text-xl md:text-3xl font-serif font-bold mb-3">セッションを受けるとどう変わる？</h2>
+      </div>
+
+      <div class="space-y-6">
+        <div class="reveal">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="before-box p-5">
+              <p class="text-[10px] font-bold mb-2 uppercase tracking-wider" style="color: #D06A6A;">Before</p>
+              <p class="text-xs leading-relaxed" style="color: var(--text-sub);">
+                とりあえず投稿してるけど<br>反応が薄くて、何が正解かわからない
+              </p>
+            </div>
+            <div class="after-box p-5">
+              <p class="text-[10px] font-bold mb-2 uppercase tracking-wider" style="color: var(--teal-dark);">After</p>
+              <p class="text-xs leading-relaxed" style="color: var(--text-sub);">
+                <strong>「この方向で、この投稿をしていけばいい」</strong><br>が明確になって迷わず動ける
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal" style="transition-delay: 0.1s;">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="before-box p-5">
+              <p class="text-[10px] font-bold mb-2 uppercase tracking-wider" style="color: #D06A6A;">Before</p>
+              <p class="text-xs leading-relaxed" style="color: var(--text-sub);">
+                好きなことは発信してるけど<br>誰にも見てもらえてない気がする
+              </p>
+            </div>
+            <div class="after-box p-5">
+              <p class="text-[10px] font-bold mb-2 uppercase tracking-wider" style="color: var(--teal-dark);">After</p>
+              <p class="text-xs leading-relaxed" style="color: var(--text-sub);">
+                <strong>自分の発信が「誰に届くか」</strong>が見えて<br>投稿するのが楽しくなる
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal" style="transition-delay: 0.2s;">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="before-box p-5">
+              <p class="text-[10px] font-bold mb-2 uppercase tracking-wider" style="color: #D06A6A;">Before</p>
+              <p class="text-xs leading-relaxed" style="color: var(--text-sub);">
+                アカウントの設計が合っているか<br>不安で立ち止まっている
+              </p>
+            </div>
+            <div class="after-box p-5">
+              <p class="text-[10px] font-bold mb-2 uppercase tracking-wider" style="color: var(--teal-dark);">After</p>
+              <p class="text-xs leading-relaxed" style="color: var(--text-sub);">
+                <strong>コンセプトとターゲットが整理されて</strong><br>「ここから再スタート」の道筋が見える
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== こんな人におすすめ ====== -->
+  <section class="py-20 px-6" style="background: var(--bg-white);">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-10 reveal">
+        <span class="font-script text-2xl md:text-3xl block mb-2" style="color: var(--teal);">Recommended</span>
+        <h2 class="text-xl md:text-3xl font-serif font-bold">こんな人におすすめです</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal" style="transition-delay: 0.15s;">
+        <!-- おすすめ -->
+        <div class="card p-6 md:p-7" style="border: 2px solid rgba(45,155,138,0.2);">
+          <div class="text-center mb-4">
+            <div class="inline-block px-4 py-1 rounded-full text-xs font-bold" style="background: var(--teal-light); color: var(--teal-dark);">おすすめの人</div>
+          </div>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-2.5 text-xs leading-relaxed">
+              <span class="mt-0.5 flex-shrink-0" style="color: var(--teal);">◎</span>
+              <span>伸び悩みの理由をはっきりさせたい</span>
+            </li>
+            <li class="flex items-start gap-2.5 text-xs leading-relaxed">
+              <span class="mt-0.5 flex-shrink-0" style="color: var(--teal);">◎</span>
+              <span>方向性を一度整理してほしい</span>
+            </li>
+            <li class="flex items-start gap-2.5 text-xs leading-relaxed">
+              <span class="mt-0.5 flex-shrink-0" style="color: var(--teal);">◎</span>
+              <span>自分のアカウントを客観的に見てほしい</span>
+            </li>
+            <li class="flex items-start gap-2.5 text-xs leading-relaxed">
+              <span class="mt-0.5 flex-shrink-0" style="color: var(--teal);">◎</span>
+              <span>発信テーマやコンセプトから考えたい</span>
+            </li>
+            <li class="flex items-start gap-2.5 text-xs leading-relaxed">
+              <span class="mt-0.5 flex-shrink-0" style="color: var(--teal);">◎</span>
+              <span>占い・恋愛・子育て・健康など非稼ぐ系ジャンル</span>
+            </li>
+            <li class="flex items-start gap-2.5 text-xs leading-relaxed">
+              <span class="mt-0.5 flex-shrink-0" style="color: var(--teal);">◎</span>
+              <span>Threadsを始めたばかりの初心者</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 向かない人 -->
+        <div class="card p-6 md:p-7">
+          <div class="text-center mb-4">
+            <div class="inline-block px-4 py-1 rounded-full text-xs font-bold" style="background: #FFF0F0; color: #CC5555;">向かない人</div>
+          </div>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-2.5 text-xs leading-relaxed" style="color: var(--text-sub);">
+              <span class="mt-0.5 flex-shrink-0" style="color: #CC5555;">✕</span>
+              <span>丸投げで正解だけ欲しい</span>
+            </li>
+            <li class="flex items-start gap-2.5 text-xs leading-relaxed" style="color: var(--text-sub);">
+              <span class="mt-0.5 flex-shrink-0" style="color: #CC5555;">✕</span>
+              <span>行動する気がない</span>
+            </li>
+          </ul>
+          <p class="text-xs mt-4 leading-relaxed" style="color: var(--text-muted);">
+            セッションはあくまで「方向性を一緒に見つける場」。<br>
+            その後行動するかはあなた次第です。<br>
+            でも、迷いが減るから行動は早くなるはず。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== セッションの流れ ====== -->
+  <section id="flow" class="py-20 px-6" style="background: var(--bg-main);">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <span class="font-script text-2xl md:text-3xl block mb-2" style="color: var(--teal);">Session Flow</span>
+        <h2 class="text-xl md:text-3xl font-serif font-bold mb-3">セッションの流れ</h2>
+        <p class="text-xs" style="color: var(--text-muted);">申し込みから完了まで、シンプルな6ステップ</p>
+      </div>
+
+      <div class="relative process-line reveal" style="transition-delay: 0.15s;">
+
+        <div class="flex gap-5 mb-8 relative">
+          <div class="num-badge z-10 shadow-sm bg-white" style="border: 2px solid var(--teal);">1</div>
+          <div class="pt-0.5">
+            <h4 class="text-sm font-bold mb-1">申し込みフォームを送信</h4>
+            <p class="text-xs" style="color: var(--text-sub);"><a href="https://docs.google.com/forms/d/e/1FAIpQLSc69Drq-6N7vMJH5de8h8b7aAjqZKE31fdYHImCJX03tbG-_w/viewform" target="_blank" style="color: var(--teal); text-decoration: underline; font-weight: 600;">こちらのフォーム</a>からお申し込みください。アカウント情報やお悩みを事前にお聞きします。しっかりご記入いただくほど、セッションの質が上がります。</p>
+          </div>
+        </div>
+
+        <div class="flex gap-5 mb-8 relative">
+          <div class="num-badge z-10 shadow-sm bg-white" style="border: 2px solid var(--teal);">2</div>
+          <div class="pt-0.5">
+            <h4 class="text-sm font-bold mb-1">公式LINEで日程調整</h4>
+            <p class="text-xs" style="color: var(--text-sub);">フォーム確認後、<a href="https://lin.ee/2FBVZu8" target="_blank" style="color: var(--teal); text-decoration: underline; font-weight: 600;">公式LINE</a>からご連絡します。ご都合の良い日時を一緒に決めましょう。</p>
+          </div>
+        </div>
+
+        <div class="flex gap-5 mb-8 relative">
+          <div class="num-badge z-10 shadow-sm bg-white" style="border: 2px solid var(--teal);">3</div>
+          <div class="pt-0.5">
+            <h4 class="text-sm font-bold mb-1">お支払い</h4>
+            <p class="text-xs" style="color: var(--text-sub);">日程確定後、決済リンクをお送りします。お支払い完了で正式受付となります。</p>
+          </div>
+        </div>
+
+        <div class="flex gap-5 mb-8 relative">
+          <div class="num-badge z-10 shadow-sm bg-white" style="border: 2px solid var(--teal);">4</div>
+          <div class="pt-0.5">
+            <h4 class="text-sm font-bold mb-1">アカウント全体の分析</h4>
+            <p class="text-xs" style="color: var(--text-sub);">セッション前に、あなたのアカウントをじっくり分析。マインドマップにまとめてお見せします。</p>
+          </div>
+        </div>
+
+        <div class="flex gap-5 mb-8 relative">
+          <div class="num-badge z-10 shadow-sm bg-white" style="border: 2px solid var(--teal);">5</div>
+          <div class="pt-0.5">
+            <h4 class="text-sm font-bold mb-1">45分のオンラインセッション</h4>
+            <p class="text-xs" style="color: var(--text-sub);">Google Meetでお話しします。おしゃべり感覚でOK。現状の問題点・改善ポイント・今後の方向性を一緒に整理します。</p>
+          </div>
+        </div>
+
+        <div class="flex gap-5 relative">
+          <div class="num-badge z-10 shadow-sm bg-white" style="border: 2px solid var(--teal);">6</div>
+          <div class="pt-0.5">
+            <h4 class="text-sm font-bold mb-1">まとめドキュメントお渡し</h4>
+            <p class="text-xs" style="color: var(--text-sub);">セッション後に振り返りドキュメントをお送りします。いつでも見返せる「あなた専用の行動指針」です。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== モニターさんの声 ====== -->
+  <section class="py-20 px-6" style="background: var(--bg-white);">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <span class="font-script text-2xl md:text-3xl block mb-2" style="color: var(--teal);">Voice</span>
+        <h2 class="text-xl md:text-3xl font-serif font-bold mb-3">セッションを受けた方の声</h2>
+      </div>
+
+      <div class="space-y-6">
+        <!-- モニター1人目 -->
+        <div class="stagger-item">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, #FFDEE9 0%, #FFF0F5 100%); box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+              <svg width="30" height="30" viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="16" r="8" fill="#F5C6B8"/>
+                <path d="M12 14c0-5 3.5-9 8-9s8 4 8 9" stroke="#8B6F5E" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                <path d="M10 15c-1-2 0-5 2-6" stroke="#8B6F5E" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <path d="M30 15c1-2 0-5-2-6" stroke="#8B6F5E" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <circle cx="17" cy="15" r="0.8" fill="#5A4A42"/>
+                <circle cx="23" cy="15" r="0.8" fill="#5A4A42"/>
+                <path d="M18 19c1 1.2 3 1.2 4 0" stroke="#E88A8A" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+                <ellipse cx="14.5" cy="17" rx="1.8" ry="1" fill="#FBBCBC" opacity="0.4"/>
+                <ellipse cx="25.5" cy="17" rx="1.8" ry="1" fill="#FBBCBC" opacity="0.4"/>
+                <path d="M8 30c0-6 5.5-10 12-10s12 4 12 10" fill="#E8D5C8" stroke="none"/>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <div class="relative p-5 rounded-2xl" style="background: #F8F8F6; border: 1px solid var(--border);">
+                <div style="position:absolute;top:16px;left:-7px;width:14px;height:14px;background:#F8F8F6;border-left:1px solid var(--border);border-bottom:1px solid var(--border);transform:rotate(45deg);"></div>
+                <p class="text-xs leading-[2] mb-2.5" style="color: var(--text-sub);">
+                  このセッションはとにかく、<strong style="color: var(--text-main);">寄り添い方がすごい</strong>です！少しの方向性ヒアリングから、私が何を考えているかをとても良く見てくれて…すごく考えてくださったのがよーく分かりました。
+                </p>
+                <p class="text-xs leading-[2] mb-2.5" style="color: var(--text-sub);">
+                  あのわかりやすすぎる説明で、今までつまずいていた事がどんどんクリアに。色々な教材を読んでも理解できなかったことが、<strong style="color: var(--text-main);">やっと理解できました</strong>。目から鱗の連続でした。
+                </p>
+                <p class="text-xs leading-[2]" style="color: var(--text-sub);">
+                  さらに思考の整理が苦手な私がやるべき事を、<strong style="color: var(--text-main);">段階づけてタスク化</strong>！泣けました。逆の意味で全然価格に見合わない…こんな素敵なセッションに出会えて幸せでした。
+                </p>
+              </div>
+              <p class="text-[10px] mt-2 ml-1" style="color: var(--text-muted);">セッションモニター Aさん（占い系アカウント）</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- モニター2人目 -->
+        <div class="stagger-item">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, #D4F1F9 0%, #E8F5F2 100%); box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+              <svg width="30" height="30" viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="16" r="8" fill="#F5C6B8"/>
+                <path d="M11 12c1-4 4-7 9-7s9 3 9 7c0 1-0.5 2-1 2" stroke="#6B4C3B" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                <path d="M11 12c0 2-1 6-1 8" stroke="#6B4C3B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <path d="M29 14c1 1 1.5 4 1 6" stroke="#6B4C3B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <circle cx="17" cy="15" r="0.8" fill="#5A4A42"/>
+                <circle cx="23" cy="15" r="0.8" fill="#5A4A42"/>
+                <path d="M18.5 19c0.8 0.8 2.2 0.8 3 0" stroke="#E88A8A" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+                <ellipse cx="14.5" cy="17" rx="1.8" ry="1" fill="#FBBCBC" opacity="0.4"/>
+                <ellipse cx="25.5" cy="17" rx="1.8" ry="1" fill="#FBBCBC" opacity="0.4"/>
+                <path d="M8 30c0-6 5.5-10 12-10s12 4 12 10" fill="#C8DDD5" stroke="none"/>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <div class="relative p-5 rounded-2xl" style="background: #F8F8F6; border: 1px solid var(--border);">
+                <div style="position:absolute;top:16px;left:-7px;width:14px;height:14px;background:#F8F8F6;border-left:1px solid var(--border);border-bottom:1px solid var(--border);transform:rotate(45deg);"></div>
+                <p class="text-xs leading-[2]" style="color: var(--text-sub);">
+                  <strong style="color: var(--text-main);">用意された資料の量に感動</strong>。しっかり分析してロードマップまで作ってくれていました。自分のことって客観的に見れないからこそ、「ここが足りなかったな！ここはできてたのね！」って気づける。<strong style="color: var(--text-main);">初対面でもとっても話しやすい方</strong>ですよ。
+                </p>
+              </div>
+              <p class="text-[10px] mt-2 ml-1" style="color: var(--text-muted);">セッションモニター Bさん</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 料金 ====== -->
+  <section id="price" class="py-20 px-6" style="background: linear-gradient(180deg, var(--bg-main) 0%, #E8F2EF 50%, var(--bg-main) 100%);">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-8 reveal">
+        <span class="font-script text-2xl md:text-3xl block mb-2" style="color: var(--teal);">Price</span>
+        <h2 class="text-xl md:text-3xl font-serif font-bold">料金</h2>
+      </div>
+
+      <div class="card p-8 md:p-10 reveal text-center" style="transition-delay: 0.15s; position: relative; overflow: hidden; border: 2px solid rgba(45,155,138,0.2);">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg, var(--teal-light), var(--teal), var(--teal-light));border-radius:20px 20px 0 0;"></div>
+
+        <div class="w-14 h-14 mx-auto mb-4 rounded-full flex items-center justify-center text-2xl" style="background: var(--teal-light);">🐓</div>
+
+        <h3 class="text-lg font-serif font-bold mb-2">アカウント添削セッション</h3>
+        <p class="text-xs mb-5" style="color: var(--text-sub);">45分のセッション＋事前分析＋まとめドキュメント</p>
+
+        <div class="flex items-baseline gap-1 justify-center mb-6">
+          <span class="text-base font-bold" style="color: var(--teal);">¥</span>
+          <span class="text-4xl font-extrabold" style="color: var(--teal);">4,980</span>
+          <span class="text-xs" style="color: var(--text-muted);">（税込）</span>
+        </div>
+
+        <div class="text-left p-5 rounded-xl mb-6" style="background: var(--teal-light);">
+          <ul class="space-y-2.5 text-sm">
+            <li class="flex items-start gap-2"><span style="color: var(--teal);">✓</span> 事前ヒアリング＋アカウント分析</li>
+            <li class="flex items-start gap-2"><span style="color: var(--teal);">✓</span> 45分のオンラインセッション（Google Meet）</li>
+            <li class="flex items-start gap-2"><span style="color: var(--teal);">✓</span> マインドマップで整理・情報共有</li>
+            <li class="flex items-start gap-2"><span style="color: var(--teal);">✓</span> セッション後まとめドキュメントお渡し</li>
+          </ul>
+        </div>
+
+        <div class="p-4 rounded-xl mb-6" style="background: var(--orange-light);">
+          <p class="text-xs font-bold mb-1" style="color: var(--orange-dark);">感想投稿で特典あり！</p>
+          <p class="text-[11px] leading-relaxed" style="color: var(--text-sub);">
+            セッション後48時間以内に感想を投稿してくださった方には<br>
+            <strong>2週間のチャットサポート</strong>＋<strong>リピート時20%OFF</strong>をプレゼント
+          </p>
+        </div>
+
+        <p class="text-xs leading-loose mb-6" style="color: var(--text-muted);">
+          ※ 日程は平日 9〜14時 or 22時以降が基本です<br>
+          ※ フォーム送信後、LINEで日程調整 → 決済の流れです<br>
+          ※ 内容・価格は予告なく変更する場合があります
+        </p>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc69Drq-6N7vMJH5de8h8b7aAjqZKE31fdYHImCJX03tbG-_w/viewform" target="_blank" class="inline-block w-full text-center rounded-2xl font-bold shadow-lg text-sm text-white btn-teal" style="padding-top: 18px; padding-bottom: 18px;">
+          フォームから申し込む
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== よくある質問 ====== -->
+  <section id="faq" class="py-20 px-6" style="background: var(--bg-white);">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <span class="font-script text-2xl md:text-3xl block mb-2" style="color: var(--teal);">FAQ</span>
+        <h2 class="text-xl md:text-3xl font-serif font-bold">よくある質問</h2>
+      </div>
+
+      <div class="space-y-3.5">
+
+        <div class="faq-item reveal">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-q-badge">Q</span>
+            <span>何も決まっていない初心者でも大丈夫ですか？</span>
+            <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <strong style="color: var(--text-main);">はい、むしろ初心者の方こそおすすめです。</strong><br><br>
+              0→1がまだの方や、アカウントの方向性が決まっていない方でも大丈夫。コンセプト設計からお手伝いします。最初の設計をちゃんとすることで、遠回りを防げます。
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-q-badge">Q</span>
+            <span>セッションを受けたらすぐ伸びますか？</span>
+            <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              伸びるかどうかは、<strong style="color: var(--text-main);">セッション後に行動するか次第</strong>です。<br><br>
+              ただ、方向性が明確になることで迷いが減り、行動が早くなるのは間違いありません。「何をすればいいかわからない」状態がなくなるだけで、動き出しのスピードは格段に変わります。
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-q-badge">Q</span>
+            <span>コンサルとは何が違うんですか？</span>
+            <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <strong style="color: var(--text-main);">スポットコンサルに近い形式です。</strong><br><br>
+              ベッタリ伴走するのではなく、「今すぐ方向性を示してほしい」「客観的に見てほしい」という方向けの単発セッションです。今の状況に合わせた現実的な改善策をお渡しします。
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-q-badge">Q</span>
+            <span>セッションの日程はどうやって決めますか？</span>
+            <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              フォーム送信後、<strong style="color: var(--text-main);">公式LINEで一緒に日程を決めます</strong>。<br><br>
+              基本的に平日の9〜14時 or 22時以降が対応可能です。日程が決まってからお支払いなので、安心してお申し込みください。
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CTA ====== -->
+  <section class="py-20 px-6" style="background: var(--bg-main);">
+    <div class="max-w-2xl mx-auto">
+      <div class="card p-10 md:p-12 text-center reveal" style="position: relative; overflow: hidden; border: 2px solid rgba(45,155,138,0.15);">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg, var(--teal-light), var(--teal), var(--teal-light));border-radius:20px 20px 0 0;"></div>
+
+        <div class="text-3xl mb-4">🐓</div>
+
+        <h3 class="text-lg font-serif font-bold mb-3">立ち止まっているなら、<br class="sm:hidden">一度見せてください。</h3>
+
+        <p class="text-sm leading-loose mb-6" style="color: var(--text-sub);">
+          アカウント運用で悩んでいるなら、<br>
+          それは<strong style="color: var(--teal);">第三者に見てもらうタイミング</strong>です。<br><br>
+          あなたの「今」を整えて、背中を押します。<br>
+          <strong>立ち止まっている人の再スタート地点</strong>になれたら嬉しいです。
+        </p>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc69Drq-6N7vMJH5de8h8b7aAjqZKE31fdYHImCJX03tbG-_w/viewform" target="_blank" class="inline-block px-10 py-4 rounded-full btn-teal font-bold text-sm shadow-xl mb-5">
+          フォームから申し込む
+        </a>
+
+        <p class="text-xs" style="color: var(--text-muted);">
+          フォーム送信後、公式LINEで日程調整します
+        </p>
+
+        <div class="pt-6 mt-6 border-t" style="border-color: var(--border);">
+          <p class="text-xs mb-3" style="color: var(--text-muted);">質問だけでもお気軽にどうぞ</p>
+          <a href="https://lin.ee/2FBVZu8" target="_blank" class="inline-block px-8 py-3 rounded-full bg-white border font-bold text-xs shadow-sm hover:shadow-md transition-all" style="border-color: var(--border); color: var(--text-main);">
+            公式LINEで聞いてみる
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Footer ====== -->
+  <footer class="py-12 px-6" style="background: var(--bg-main);">
+    <div class="max-w-2xl mx-auto text-center">
+      <div class="mb-8 reveal">
+        <p class="text-sm md:text-base font-serif italic leading-relaxed" style="color: var(--text-sub);">
+          占いも、恋愛も、子育ても、ビジネスも。<br>
+          どんなジャンルでも、伝え方次第で届く人は変わる。<br>
+          「このままでいいのかな」と思ったら、一度見せてください。
+        </p>
+      </div>
+
+      <div class="pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4" style="border-color: var(--border);">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">🐓</span>
+          <span class="font-bold tracking-tight" style="color: var(--teal-dark);">にわとり</span>
+          <span class="text-[9px] tracking-[0.2em] uppercase opacity-40 font-bold ml-1">Account Review Session</span>
+        </div>
+        <p class="text-[10px] opacity-30 tracking-widest font-bold uppercase">&copy; 2025 にわとり All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====== Mobile Menu ====== -->
+  <div id="mobile-menu" class="fixed inset-0 z-[60] hidden" style="background: rgba(0,0,0,0.3);">
+    <div class="absolute right-0 top-0 bottom-0 w-72 bg-white shadow-2xl p-8 flex flex-col gap-6">
+      <button onclick="closeMobileMenu()" class="self-end text-2xl mb-4" style="color: var(--text-sub);">✕</button>
+      <a href="#about" onclick="closeMobileMenu()" class="text-sm font-medium py-2 border-b" style="border-color: var(--border);">セッションとは</a>
+      <a href="#flow" onclick="closeMobileMenu()" class="text-sm font-medium py-2 border-b" style="border-color: var(--border);">セッションの流れ</a>
+      <a href="#price" onclick="closeMobileMenu()" class="text-sm font-medium py-2 border-b" style="border-color: var(--border);">料金</a>
+      <a href="#faq" onclick="closeMobileMenu()" class="text-sm font-medium py-2 border-b" style="border-color: var(--border);">FAQ</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc69Drq-6N7vMJH5de8h8b7aAjqZKE31fdYHImCJX03tbG-_w/viewform" target="_blank" class="px-6 py-3 rounded-full btn-teal text-xs text-center font-bold mt-4">申し込む</a>
+    </div>
+  </div>
+
+  <!-- ====== Scripts ====== -->
+  <script>
+    // Intersection Observer
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -40px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('active');
+      });
+    }, observerOptions);
+    document.querySelectorAll('.reveal, .stagger-item').forEach(el => observer.observe(el));
+
+    // FAQ
+    function toggleFaq(el) {
+      const item = el.closest('.faq-item');
+      item.classList.toggle('open');
+    }
+
+    // Mobile Menu
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    });
+
+    function closeMobileMenu() {
+      mobileMenu.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) closeMobileMenu();
+    });
+  </script>
+
+</body>
+</html>
